@@ -1,0 +1,1260 @@
+// media
+@media screen and ( max-width: 1300px )
+	// home
+	.home
+		&-main
+			&-text
+				&__title
+					& > span
+						display: block
+
+	// cabinet				
+	.cabinet
+		&-block
+			&-main
+				&-reserv
+					&-filters
+						&-btn
+							&__btn
+								padding: 15px 30px
+								margin-right: 10px
+
+@media screen and ( max-width: 1200px )
+	// header-transparent
+	.header-transparent
+		&-block
+			&-user
+				&-notifications
+					margin-top: 10px
+					margin-right: 25px
+
+				&__btn
+					display: none
+
+				&__btn-mobile
+					display: block
+
+	// home
+	.home
+		// services
+		&-services
+			&-list
+				width: 100%
+
+				&-item
+					&:nth-last-child(1), &:nth-last-child(2), &:nth-last-child(3)
+						width: 60%
+
+			&-img
+				width: 35%
+
+				top: auto
+
+				bottom: 0
+				right: 0
+
+		// connect
+		&-connect
+			&-img
+				width: 400px
+
+			&-text
+				width: 60%
+
+		// success-business
+		&-success-business
+			&-img
+				top: 50%
+				left: -50px
+
+				transform: translateY(-50%)
+
+				width: 400px
+
+				&__img
+					width: 100%
+
+		// email
+		&-email
+			&-form
+				&-text
+					&__subtitle
+						max-width: 100%
+
+				&-wrapper
+					width: 100%
+
+	// cabinet				
+	.cabinet
+		&-block
+			&-main
+				&-reserv
+					&-filters
+						display: none
+
+					&-filters-media
+						display: block
+
+			&-objects
+				&-filters
+					flex-wrap: wrap
+
+					&-block
+						width: 49%
+
+						&:last-child
+							margin-top: 25px
+							width: 100%
+
+	// objects_new
+	.objects-new
+		&-modal
+			&-content
+				&-terms
+					&-times
+						flex-direction: column
+
+						&-from-to
+							width: 100%
+
+						&-possibility-from-to-wrapper
+							margin-top: 25px
+							width: 100%
+
+					&-selects
+						&-pay, &-confirmed
+							width: 49%
+
+			&-content-big
+				&-rooms-block
+					&-row-inputs
+						flex-wrap: wrap
+
+						&-input-name
+							width: 48%
+
+						&-select-types-room
+							width: 48%
+
+						&-select-types-bed
+							margin-top: 50px
+
+							width: 48%
+
+						&-guests-count
+							margin-top: 50px
+
+							width: 48%
+
+						&-free-cancel-wrapper
+							width: 100%
+
+						&-foods-wrapper
+							margin-top: 50px
+
+							width: 100%
+
+						&-payment-wrapper
+							width: 100%
+
+						&-price-wrapper
+							margin-top: 50px
+
+							width: 100%
+
+					&-options
+						&-block
+							&-row-inputs
+								flex-wrap: wrap
+
+								&-type-beds
+									width: 100%
+
+								&-foods-wrapper
+									margin-top: 50px
+
+									width: 100%
+
+@media screen and ( max-width: 1000px )
+	// header-transparent
+	.header-transparent
+		&-bg
+			height: 600px
+
+		&-block
+			&-search, &__pass
+				display: none
+
+		&__link
+			display: none
+
+	// home
+	.home
+		// payments-models
+		&-payments-models
+			&-btn
+				padding-bottom: 15px
+
+				&__btn
+					margin-right: 10px
+
+	// objects_new
+	.objects-new
+		&-modal
+			&-content-big
+				&-rooms-block
+					&-btn
+						flex-direction: column
+						align-items: flex-start
+
+						&__btn
+							&.add-room
+								margin-top: 25px
+								order: 2
+
+							&.add-room-option
+								order: 1
+
+	// objects_new_filled
+	.objects-new-filled
+		&-section
+			&-terms
+				&-from-to
+					flex-direction: column
+
+					&-block-wrapper
+						width: 100%
+						margin-bottom: 25px
+
+	// footer
+	.footer
+		&-block-wrapper
+			flex-direction: column
+
+		&-block
+			&-content
+				width: 100%
+
+				display: flex
+				justify-content: space-between
+				align-items: flex-start
+
+				margin-bottom: 50px
+
+			&-social
+				margin-top: 0
+
+			&-menu
+				width: 100%
+
+				display: flex
+				justify-content: space-between
+
+			&__link
+				margin-bottom: 15px
+
+				&:last-child
+					margin-bottom: 0
+
+@media screen and ( max-width: 900px )
+	// home
+	.home
+		// main
+		&-main
+			&-wrapper
+				margin-bottom: 125px
+
+			&-text
+				padding-top: 0
+
+		// payments-models
+		&-payments-models
+			&-btn
+				justify-content: flex-start
+
+			&-img
+				margin-top: 25px
+
+				width: 90% !important
+
+				&__img
+					&.desktop
+						display: none
+
+					&.middleMobile
+						display: block
+
+		// success-business
+		&-success-business
+			&-img
+				width: 45%
+
+				// top: 50%
+				left: -20px
+
+				// transform: translateY(0)
+
+			&-text
+				width: 100%
+
+		// steps
+		&-steps
+			&-wrapper
+				flex-direction: column
+
+			&-block
+				width: 100%
+
+				&:nth-child(odd)
+					width: 100%
+					margin-right: 0
+
+	// cabinet				
+	.cabinet
+		&-block
+			&-top
+				flex-direction: column
+				align-items: flex-start
+
+				&__link
+					margin-top: 25px
+
+			&-setting
+				&-form
+					&-block
+						&-input-wrapper
+							width: 50%
+
+			&-objects
+				&-filters
+					&-block
+						margin-top: 25px
+						width: 100%
+
+						&:first-child
+							margin-top: 0
+
+			&-reserv
+				&-filters
+					flex-direction: column
+
+					&-block
+						width: 100%
+						margin-top: 25px
+
+						&:first-child
+							margin-top: 0
+
+				&-events
+					flex-direction: column
+					align-items: center
+
+					&-item
+						margin-top: 25px
+						margin-right: 0
+
+						&:first-child
+							margin-top: 0
+
+	// objects_new
+	.objects-new
+		&-modal
+			&-content-big
+				&-services
+					&-block
+						&-item
+							width: 100%
+
+		&-cover-wrapper
+			display: flex
+			flex-direction: column
+
+		&-cover
+			&-text
+				position: relative
+
+				width: 100%
+				max-width: 100%
+
+				order: 2
+
+				border-radius: 35px 35px 0px 0px
+
+				padding-bottom: 50px
+
+				&-feedbacks
+					position: absolute
+
+					right: 0
+					bottom: 0
+
+					min-height: 50px
+					min-width: 150px
+
+					border-radius: 35px 0px 0px 0px
+
+			&-image
+				order: 1
+
+		&-additional-photos
+			&-text
+				&__subtitle
+					width: 100%
+
+		&-block
+			&-text
+				&__description
+					width: 100%
+
+	// objects_new_filled
+	.objects-new-filled
+		&-section
+			&-services
+				&-list
+					width: 50%
+
+					&:nth-child(3n+2)
+						padding-right: 0
+
+					&:nth-child(3n+3)
+						padding-right: 50px
+
+@media screen and ( max-width: 800px )
+	// home
+	.home
+		// services
+		&-services
+			&-list
+				&-item
+					&:nth-last-child(3)
+						width: 100%
+
+			&-img
+				width: 300px
+
+		// feedbacks
+		&-feedbacks
+			&-title
+				max-width: 100%
+
+				&__title
+					font-size: 18px
+
+			&-blocks-wrapper
+				display: none
+
+			&-blocks-wrapper-slider-mobile
+				margin-top: 25px
+
+				display: block
+
+			&-block
+				width: 500px
+
+		// cooperation
+		&-cooperation
+			&__title
+				font-size: 18px
+
+				max-width: 100%
+
+			&-logos
+				margin: 75px 0
+
+				&-img
+					margin: 0 25px
+
+		// email
+		&-email
+			&-form
+				padding: 30px
+
+				&-field
+					&-input
+						width: 49%
+
+					&__btn
+						margin: 0 auto
+						width: 50%
+
+						&.desktop
+							display: none
+
+						&.mobile
+							margin-top: 25px
+
+							display: block
+
+	// objects_new_filled
+	.objects-new-filled
+		&-cover
+			&-text
+				&-info
+					&-btn
+						margin-top: 0
+
+		&-section
+			&-padding
+				padding: 30px
+
+			&-room
+				&-block
+					flex-direction: column
+
+					&-subblock
+						&-info
+							&-text
+								margin: 0 0 0 25px
+
+						&-price
+							margin-top: 50px
+
+							flex-direction: row
+							text-align: left
+
+@media screen and ( max-width: 750px )
+	// header
+	.header
+		&-block
+			&-user
+				&__btn
+					display: none
+
+				&__btn-mobile
+					display: block
+
+	// home
+	.home
+		// connect
+		&-connect
+			&-wrapper
+				flex-direction: column
+
+			&-text
+				order: 2
+
+				margin-top: 50px
+				width: 100%
+
+			&-img
+				order: 1
+
+		// success-business
+		&-success-business
+			&-wrapper
+				display: flex
+				flex-direction: column
+				align-items: center
+
+			&-img
+				margin-top: 50px
+
+				width: 90%
+
+				transform: translateY(0)
+
+				order: 2
+
+				display: block
+
+				position: static
+
+			&-text
+				order: 1
+
+				&__title
+					width: 100%
+
+				&__description
+					width: 100%
+
+	// objects-new
+	.objects-new
+		&-cover
+			&-image
+				&-text
+					&__title
+						font-size: 18px
+
+					&__subtitle
+						font-size: 15px
+
+		&-block
+			&-text
+				&__title
+					font-size: 18px
+
+				&__description
+					font-size: 15px
+
+		&-modal
+			&-content
+				&-terms-about .textarea .textarea__field
+					height: 100px
+
+	// objects-new-filled
+	.objects-new-filled
+		&-cover
+			&-text
+				align-items: flex-end
+				width: 100%
+				order: 2
+				border-radius: 35px 35px 0px 0px
+
+				&-info
+					&-btn
+						justify-content: flex-start
+
+				&-feedbacks
+					border-radius: 35px 0px 0px 0px
+					height: 50px
+
+			&-image
+				order: 1
+
+				&-btn-wrapper
+					flex-direction: column
+
+				&-btn
+					margin: 0 25px 50px 25px
+
+					&:last-child
+						margin: 0 25px
+
+@media screen and ( max-width: 700px )
+	// home
+	.home
+		// main
+		&-main
+			&-text
+				&-btn
+					&__register
+						margin-right: 0
+						display: block
+
+					&__login
+						margin-top: 25px
+						display: block
+
+		// services
+		&-services
+			&-list
+				&-item
+					&:nth-last-child(2), &:nth-last-child(1)
+						width: 100%
+
+			&-img
+				margin: 50px auto 0 auto
+
+				width: 100%
+
+				position: static
+
+	// reglog
+	.reglog
+		&-form
+			&-block
+				&-inputs-row
+					flex-direction: column
+
+					&:first-child
+						margin-top: 0
+
+					&-input
+						width: 100%
+						margin-bottom: 25px
+
+						&:last-child
+							margin-bottom: 25px
+
+				&-btn
+					&__btn.middle-width
+						width: 100%
+
+	// cabinet
+	.cabinet
+		&-menu
+			&-item
+				&__title
+					display: none
+
+		&-block
+			&-setting
+				&-form
+					&-block
+						&-title
+							flex-direction: column
+							align-items: flex-start
+
+							&__btn
+								margin-top: 25px
+
+								&-message-text
+									width: 300px
+
+									right: auto
+									left: -30px
+									bottom: 30px
+
+						&-inputs
+							flex-direction: column
+
+						&-input-wrapper
+							width: 100%
+							margin-bottom: 25px
+
+							&:nth-last-child(2)
+								margin-bottom: 25px
+
+						&-input
+							width: 100%
+
+							&-title
+								&-message
+									width: 300px
+									bottom: 20px
+									left: auto
+									right: -80px
+
+	// objects_new
+	.objects-new
+		&-modal
+			&-content
+				&-text
+					&__title
+						font-size: 18px
+
+					&__description
+						font-size: 15px
+
+				&-terms
+					margin-top: 0
+
+					&-times
+						&-from-to
+							flex-direction: column
+
+							&-block
+								width: 100%
+
+								&:last-child
+									margin-top: 25px
+
+						&-possibility-from-to
+							flex-direction: column
+							align-items: flex-start
+
+							&-select
+								margin-top: 15px
+								margin-left: 0
+
+					&-selects
+						flex-wrap: wrap
+
+						&-pay
+							width: 100%
+
+						&-confirmed
+							margin-top: 25px
+							width: 100%
+
+			&-content-big
+				&-top-text
+					padding: 30px
+
+					&__title
+						font-size: 18px
+
+					&__description
+						font-size: 15px
+
+				&-scroll
+					padding: 25px 30px
+
+				&-bottom-btn
+					padding: 30px
+
+			&-block
+				&-btn
+					margin: 30px 0
+
+@media screen and ( max-width: 600px )
+	// header
+	.header
+		padding: 10px 0
+
+		&-block
+			&-menu-btn
+				width: 35px
+				height: 30px
+
+			&-logo
+				&__image
+					width: 110px
+
+			&__pass
+				display: none
+
+			&-user
+				&__btn
+					&-mobile
+						width: 30px
+						height: 30px
+
+						&::before
+							width: 30px
+							height: 30px
+
+	// home
+	.home
+		// feedbacks
+		&-feedbacks
+			&-block
+				width: 300px
+
+				margin: 0 10px
+
+				&-text
+					&-avatar
+						min-width: 40px
+						height: 40px
+
+	// cabinet
+	.cabinet
+		&-block
+			&-setting
+				&-vetifications
+					&-block
+						&-document
+							&-cover
+								display: none
+
+							&-text
+								margin-left: 0
+
+								&__input
+									font-size: 14px
+
+	// objects_new_filled
+	.objects-new-filled
+		&-section
+			&-top
+				align-items: flex-start
+				flex-direction: column
+
+			&-text
+				&__edit
+					margin-top: 25px
+
+			&-room
+				&-block
+					&-subblock
+						&-info
+							flex-direction: column
+
+							&-cover
+								width: 100%
+								height: 200px
+
+							&-text
+								margin: 25px 0 0 0
+
+						&-price
+							margin-top: 25px
+							flex-direction: column
+							align-items: center
+
+			&-terms
+				&-from-to
+					&-block
+						margin-left: 0
+
+					&-change-time
+						&-block
+							flex-direction: column
+
+							&__description
+								display: flex
+								justify-content: space-between
+
+								margin-bottom: 15px
+
+				&-payment
+					&-block
+						width: 100%
+
+	// footer
+	.footer
+		&-block
+			&-menu
+				flex-direction: column
+				align-items: center
+				text-align: center
+
+				&-item
+					margin-bottom: 25px
+
+					&:last-child
+						margin-bottom: 0
+
+			&-social
+				&__item
+					margin-right: 10px
+
+			&__link
+				text-align: center
+
+@media screen and ( max-width: 500px )
+	// interface
+	.btn
+		font-size: 15px
+
+	.btn-light
+		font-size: 15px
+
+	.checkbox
+		&__label
+			align-items: flex-start
+
+			&__text
+				font-size: 12px
+
+	// header-transparent
+	.header-transparent
+		padding: 25px 0 50px 0
+
+		&-bg
+			background-position: center right
+
+	// home
+	.home
+		&-main
+			&-text
+				padding-top: 25px
+
+				&__title
+					font-size: 32px
+
+				&__btn
+					width: 100%
+					margin-top: 50px
+
+		// services
+		&-services
+			margin-bottom: 75px
+			padding-bottom: 0
+
+			&-wrapper
+				padding: 30px
+
+			&-list
+				&__title
+					font-size: 18px
+					margin-bottom: 25px
+
+				&-item
+					align-items: flex-start
+					font-size: 15px
+
+			&-img
+				width: 200px
+
+		// connect
+		&-connect
+			margin-bottom: 75px
+
+			&-text
+				&__title
+					font-size: 18px
+					margin-bottom: 20px
+
+				&__description
+					font-size: 15px
+
+				&__btn
+					width: 100%
+
+			&-img
+				width: 100%
+
+		// payments-models
+		&-payments-models
+			margin-bottom: 75px
+
+			&__title
+				font-size: 18px
+				margin-bottom: 25px
+
+			&-img
+				width: 95% !important
+
+				&__img
+					&.middleMobile
+						display: none
+
+					&.smallMobile
+						display: block
+
+		// success-business
+		&-success-business
+			margin-bottom: 75px
+
+			&-wrapper
+				padding: 30px
+
+			&-text
+				&__title
+					font-size: 18px
+
+				&__description
+					font-size: 15px
+
+				&__btn
+					width: 100%
+
+		// steps
+		&-steps
+			margin-bottom: 75px
+
+			&-block
+				margin-bottom: 25px
+
+				&-icon
+					min-width: 70px
+
+					& > svg
+						width: 65px
+
+				&-text
+					margin-left: 15px
+
+					&__title
+						font-size: 18px
+
+					&__description
+						font-size: 15px
+
+		// cooperation
+		&-cooperation
+			margin-bottom: 75px
+
+			&__btn
+				width: 95%
+
+		// email
+		&-email
+			&-form
+				&-text
+					&__title
+						font-size: 18px
+
+					&__subtitle
+						font-size: 15px
+
+				&-field
+					margin-top: 25px
+					flex-direction: column
+
+					&-input
+						margin-bottom: 15px
+						width: 100%
+
+						&:last-child
+							margin-bottom: 0
+
+					&__btn
+						width: 100%
+	// reglog
+	.reglog
+		&-content
+			&-padding
+				padding: 25px
+
+			&-padding-top
+				padding: 25px 25px 0 25px
+
+			&-padding-bottom
+				padding: 0 25px 25px 25px
+
+	// cabinet
+	.cabinet
+		margin-bottom: 50px
+
+		&-block
+			&-padding
+				padding: 30px
+
+			&-padding-top
+				padding: 30px 30px 0 30px
+
+			&-padding-bottom
+				padding: 0 30px 30px 30px
+
+			&-main
+				&-notifications
+					padding-left: 30px
+
+					&-block
+						min-width: 270px
+
+						&__img
+							width: 130px
+							right: -50px
+
+				&-reserv
+					padding-bottom: 30px
+
+	// objects_new
+	.objects-new
+		&-modal
+			&-content
+				width: 95%
+				padding: 25px
+
+				&-stars
+					&-input
+						&-item
+							margin-right: 15px
+
+							& > svg
+								width: 30px
+
+				&-btn
+					flex-direction: column
+
+					&__save
+						width: 100%
+
+						order: 1
+
+					&__cancel
+						margin-top: 15px
+
+						font-size: 15px
+						order: 2
+
+			&-content-big
+				&-scroll-wrapper
+					padding-right: 15px
+
+				&-bottom-btn
+					flex-direction: column
+
+					&__cancel
+						order: 2
+						margin-top: 25px
+
+					&__save
+						width: 100%
+						order: 1
+
+				&-rooms-block
+					&-row-inputs
+						flex-wrap: wrap
+
+						&-input-name
+							width: 100%
+
+						&-select-types-room, &-select-types-bed, &-guests-count
+							width: 100%
+							margin-top: 35px
+
+						&-free-cancel, &-foods
+							flex-direction: column
+
+							&-select
+								margin-left: 0
+								margin-top: 15px
+
+						&-payment
+							flex-direction: column
+
+							&-select, &-input
+								width: 100%
+
+							&-input
+								margin-top: 15px
+
+						&-price
+							flex-direction: column
+							align-items: flex-start
+
+							&-input
+								margin-right: 0
+								width: 100%
+
+							&__text
+								margin-top: 15px
+
+					&-options
+						&-block
+							&-row-inputs
+								&-type-beds
+									flex-wrap: wrap
+
+									&-block
+										width: 100%
+
+										&:last-child
+											margin-top: 25px
+
+								&-foods
+									flex-direction: column
+
+									&-select
+										margin-left: 0
+										margin-top: 15px
+
+					&-btn
+						margin: 30px 0 15px 0
+
+				&-services
+					&-block
+						&-item
+							flex-direction: column
+							align-items: flex-start
+
+							&__title
+								margin-bottom: 15px
+
+		&-block
+			padding: 25px
+
+			&-text
+				&__btn
+					font-size: 15px
+
+			&-icon
+				& > svg
+					width: 150px
+
+			&-verification
+				&-block
+					&-document
+						&-cover
+							display: none
+
+						&-text
+							margin-left: 0
+
+							&__input
+								font-size: 14px
+
+	// objects_new_filled
+	.objects-new-filled
+		&-section
+			&-top
+				&__title
+					font-size: 18px
+
+			&__description
+				font-size: 15px
+
+			&-services
+				&-list
+					&-tab
+						margin-top: 15px
+
+						&-top
+							&__title
+								font-size: 15px
