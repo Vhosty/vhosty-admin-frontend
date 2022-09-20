@@ -442,6 +442,190 @@
 							font-size: 15px
 							color: $darkMainColor
 
+		&-users
+			&-types-btns
+				margin-top: 50px
+
+			&-filters
+				display: flex
+				justify-content: space-between
+				align-items: flex-end
+
+				margin-top: 50px
+
+				&-block
+					width: 50%
+
+					&-search
+						position: relative
+						width: 40%
+
+						&__input
+							font-size: 18px
+							color: $black
+
+							border-radius: 100px
+							padding: 12px 25px 12px 55px
+							width: 100%
+
+							border: 2px solid $lightGray
+
+							&::placeholder
+								color: $lightGray
+								user-select: none
+
+						&::before
+							display: block
+							position: absolute
+							content: ""
+
+							top: 50%
+							left: 25px
+
+							transform: translateY(-50%)
+
+							width: 19px
+							height: 19px
+
+							background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.8395 15.4605L13.1641 11.7852C14.0489 10.6072 14.5266 9.17331 14.525 7.7C14.525 3.93672 11.4633 0.875 7.7 0.875C3.93672 0.875 0.875 3.93672 0.875 7.7C0.875 11.4633 3.93672 14.525 7.7 14.525C9.17331 14.5266 10.6072 14.0489 11.7852 13.1641L15.4605 16.8395C15.6466 17.0058 15.8893 17.0945 16.1387 17.0876C16.3881 17.0806 16.6255 16.9784 16.8019 16.8019C16.9784 16.6255 17.0806 16.3881 17.0876 16.1387C17.0945 15.8893 17.0058 15.6466 16.8395 15.4605ZM2.825 7.7C2.825 6.73582 3.11091 5.79328 3.64659 4.9916C4.18226 4.18991 4.94363 3.56506 5.83442 3.19609C6.72521 2.82711 7.70541 2.73057 8.65107 2.91867C9.59672 3.10677 10.4654 3.57107 11.1471 4.25285C11.8289 4.93464 12.2932 5.80328 12.4813 6.74893C12.6694 7.69459 12.5729 8.67479 12.2039 9.56558C11.8349 10.4564 11.2101 11.2177 10.4084 11.7534C9.60672 12.2891 8.66418 12.575 7.7 12.575C6.40755 12.5734 5.16847 12.0593 4.25457 11.1454C3.34066 10.2315 2.82655 8.99245 2.825 7.7Z' fill='%23253021' fill-opacity='0.5'/%3E%3C/svg%3E%0A")
+							+backgroundSetting
+
+			&-delete
+				padding-left: 30px
+				padding-bottom: 20px
+
+				&__btn
+					cursor: pointer
+
+					display: flex
+					align-items: center
+
+					font-size: 15px
+					background-color: transparent
+					color: $darkMainColor
+
+					+transition
+
+					& > svg
+						margin-right: 15px
+
+						width: 15px
+						fill: $darkMainColor
+
+						+transition
+
+					&.disabled
+						color: #D3D6D3
+
+						& > svg
+							fill: #D3D6D3
+
+			&-titles
+				width: 1200px
+
+				display: flex
+				justify-content: space-between
+				align-items: center
+
+				padding: 20px 30px
+
+				background-color: #E6F6F6
+
+				&__item
+					font-size: 15px
+					user-select: none
+
+					&.id
+						width: 50px
+
+					&.date
+						width: 130px
+
+					&.name
+						width: 230px
+
+					&.email
+						width: 250px
+
+					&.phone
+						width: 150px
+
+			&-items-wrapper
+				padding: 30px 0
+				width: 100%
+
+				overflow-x: auto
+				overflow-y: hidden
+
+				&::-webkit-scrollbar
+					display: none
+
+			&-item
+				width: 1200px
+
+				display: flex
+				justify-content: space-between
+
+				position: relative
+
+				padding: 20px 30px
+
+				+transition
+
+				+open
+
+				&.selected
+					background-color: #E6F6F6
+
+				&::before
+					content: ""
+
+					position: absolute
+
+					bottom: 0
+					left: 50%
+
+					transform: translateX(-50%)
+
+					width: calc( 100% - 100px )
+					height: 1px
+
+					background-color: $borderGray
+
+				&-block
+					&-id
+						width: 50px
+
+						&__title
+							font-size: 15px
+
+					&-date
+						width: 130px
+
+						&__title
+							font-size: 15px
+
+							& > span
+								color: $gray
+								margin-left: 15px
+
+					&-name
+						width: 230px
+
+						&__title
+							font-size: 15px
+
+					&-email
+						width: 250px
+
+						&__title
+							font-size: 15px
+
+					&-phone
+						width: 150px
+
+						&__title
+							font-size: 15px
 
 		&-null
 			padding: 100px 0

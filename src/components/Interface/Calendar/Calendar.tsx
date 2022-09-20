@@ -16,10 +16,13 @@ export interface CalendarTo {
 }
 
 interface CalendarProps {
-    isCheckedBefore?: boolean;
+	title1: string,
+	title2: string,
+	
+	isCheckedBefore?: boolean;
 }
 
-const Calendar: React.FC<CalendarProps> = ({isCheckedBefore}) => {
+const Calendar: React.FC<CalendarProps> = ({title1, title2, isCheckedBefore}) => {
     const [activeCalendar, setActiveCalendar] = React.useState<boolean>(false);
 
     const [date, setDate] = React.useState<Moment>(moment());
@@ -44,13 +47,13 @@ const Calendar: React.FC<CalendarProps> = ({isCheckedBefore}) => {
                     <span className="calendar-period__from">
                         {from.selected
                             ? from.date.format("D MMMM (dd)")
-                            : "Заезд"}
+                            : title1}
                     </span>
-                    <div className="calendar-period__line"></div>
+                    <div className="calendar-period-line"></div>
                     <span className="calendar-period__to">
                         {from.selected && !from.date.isSame(to.date, "days")
                             ? to.date.format("D MMMM (dd)")
-                            : "Отъезд"}
+                            : title2}
                     </span>
                 </div>
 

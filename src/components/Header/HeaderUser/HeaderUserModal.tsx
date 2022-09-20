@@ -14,12 +14,14 @@ const HeaderUserModal: React.FC = () => {
             </NavLink>
 
             <NavLink
-                to="/cabinet/setting"
+                to="/cabinet/users"
                 className={({isActive}) =>
                     `header-block-user-modal-item ${isActive ? "active" : ""}`
                 }
             >
-                <p className="header-block-user-modal-item__title">Аккаунт</p>
+                <p className="header-block-user-modal-item__title">
+                    Пользователи
+                </p>
             </NavLink>
 
             <NavLink
@@ -28,25 +30,16 @@ const HeaderUserModal: React.FC = () => {
                     `header-block-user-modal-item ${isActive ? "active" : ""}`
                 }
             >
-                <p className="header-block-user-modal-item__title">Объекты</p>
-            </NavLink>
-
-            <NavLink
-                to="/cabinet/reserv"
-                className={({isActive}) =>
-                    `header-block-user-modal-item ${isActive ? "active" : ""}`
-                }
-            >
                 <p className="header-block-user-modal-item__title">
-                    Бронирования
+                    Объявления
                 </p>
             </NavLink>
 
-            <Link to="#logout" className="header-block-user-modal-item">
+            {/* <Link to="#logout" className="header-block-user-modal-item">
                 <p className="header-block-user-modal-item__title">
                     Выйти из аккаунта
                 </p>
-            </Link>
+            </Link> */}
         </div>
     );
 };

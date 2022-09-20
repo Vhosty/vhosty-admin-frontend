@@ -4,6 +4,10 @@ const initialState: CabinetObjectsState = {
 	isLoadedObjects: false,
 	objects: [],
 
+	filters: {
+		status: ""
+	},
+
 	isSendDelete: false,
 	deleteIds: {},
 }
@@ -20,6 +24,16 @@ const cabinetObjects = (state = initialState, action: CabinetObjectsActions) => 
 		return {
 			...state,
 			objects: action.payload
+		}
+	}
+
+	if (action.type === CabinetObjectsActionTypes.SET_CABINET_OBJECTS_FILTERS_STATUS) {
+		return {
+			...state,
+			filters: {
+				...state.filters,
+				status: action.payload
+			}
 		}
 	}
 

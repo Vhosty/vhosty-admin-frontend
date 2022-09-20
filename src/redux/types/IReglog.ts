@@ -2,6 +2,8 @@ export enum ReglogStateTypesNotLogin {
 }
 
 export enum ReglogStateTypesLogin {
+	OBJECT_PAGE_CONFIRMED_BLOCKED = "object_page_confirmed_blocked",
+	OBJECT_PAGE_CONFIRMED_STATUS = "object_page_confirmed_status"
 }
 
 export interface ReglogState {

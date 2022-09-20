@@ -2,10 +2,10 @@ import { Dispatch } from "redux"
 
 import $api from "../../../http"
 
-import { CabinetStatisticsPeriodState, CabinetStatisticsActionTypes } from "../../types/ICabinetStatistics"
+import { CabinetStatisticsPeriodState, CabinetStatisticsActions, CabinetStatisticsActionTypes } from "../../types/ICabinetStatistics"
 
 export const fetchCabinetStatistics = (period: CabinetStatisticsPeriodState) => {
-	return async (dispatch: Dispatch) => {
+	return async (dispatch: Dispatch<CabinetStatisticsActions>) => {
 		dispatch({
 			type: CabinetStatisticsActionTypes.SET_CABINET_STATISTICS_IS_LOADED_OBJECTS,
 			payload: false

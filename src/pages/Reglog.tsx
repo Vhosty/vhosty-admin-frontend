@@ -5,6 +5,11 @@ import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
 import {
+    ObjectPageModalsConfirmedBlocked,
+    ObjectPageModalsConfirmedStatus,
+} from "../components/";
+
+import {
     ReglogStateTypesNotLogin,
     ReglogStateTypesLogin,
 } from "../redux/types/IReglog";
@@ -14,6 +19,8 @@ import {
     setReglogClose,
     setReglogType,
 } from "../redux/actions/reglog";
+
+import {sendObjectPageStatus} from '../redux/actions/object_page'
 
 const Reglog: React.FC = () => {
     const navigate = useNavigate();
@@ -25,7 +32,7 @@ const Reglog: React.FC = () => {
         ({reglog}) => reglog
     );
 
-	const PopupRef = React.useRef<HTMLDivElement>(null);
+    const PopupRef = React.useRef<HTMLDivElement>(null);
 
     React.useEffect(() => {
         document.addEventListener("mousedown", toggleReglog);
@@ -51,13 +58,27 @@ const Reglog: React.FC = () => {
         if (PopupRef.current && !PopupRef.current.contains(e.target)) {
             closeFunc();
         }
-    };
+	};
+	
+	const onChangeObjectPageModalsConfirmedStatus = (data: any) => {
+		dispatch(
+            sendObjectPageStatus(
+                query.get("id"),
+                data.status,
+                data.comment
+            ) as any
+        );
+	}
 
     return (
         <section className={`reglog ${closeAnimation ? "close" : ""}`}>
             <div
                 className={`reglog-content ${
                     closeAnimation || changeCloseAnimation ? "close" : ""
+                } ${
+                    type === ReglogStateTypesLogin.OBJECT_PAGE_CONFIRMED_STATUS
+                        ? "middle-width"
+                        : ""
                 }`}
                 ref={PopupRef}
             >
@@ -85,7 +106,16 @@ const Reglog: React.FC = () => {
                     </svg>
                 </div>
 
-                {/*  */}
+                {type ===
+                ReglogStateTypesLogin.OBJECT_PAGE_CONFIRMED_BLOCKED ? (
+                    <ObjectPageModalsConfirmedBlocked />
+                ) : null}
+
+                {type === ReglogStateTypesLogin.OBJECT_PAGE_CONFIRMED_STATUS ? (
+                    <ObjectPageModalsConfirmedStatus
+                        onSubmit={onChangeObjectPageModalsConfirmedStatus}
+                    />
+                ) : null}
             </div>
         </section>
     );

@@ -1,0 +1,890 @@
+// object-page
+.object-page
+	margin: 50px 0
+	overflow-x: hidden
+
+	&-modals
+		&-confirmed-blocked
+			text-align: center
+			padding: 50px
+
+			&-bg
+				position: absolute
+				top: 0
+				left: 0
+
+			&-text
+				position: relative
+
+				&__title
+					color: $darkMainColor
+					font-size: 18px
+
+				&__description
+					font-size: 15px
+					margin-top: 25px
+
+				&-btn
+					margin-top: 50px
+
+					display: flex
+					justify-content: space-between
+					align-items: center
+
+					&__cancel
+						cursor: pointer
+
+						background-color: transparent
+
+						font-size: 18px
+						color: $gray
+						text-decoration: underline
+
+		&-confirmed-status
+			padding: 50px
+
+			&-text
+				&__title
+					font-size: 28px
+					color: $darkMainColor
+
+				&__description
+					margin-top: 20px
+
+			&-block
+				margin-top: 30px
+
+			&-btn
+				display: flex
+				justify-content: space-between
+				align-items: center
+
+				margin-top: 50px
+
+				&__cancel
+					cursor: pointer
+
+					background-color: transparent
+
+					font-size: 18px
+					color: $gray
+					text-decoration: underline
+
+	&-btn
+		display: flex
+
+		position: fixed
+
+		bottom: 50px
+		left: 50%
+		transform: translateX(-50%)
+
+		z-index: 2
+
+		&__btn
+			width: 300px
+			margin: 0 35px
+
+			+boxShadow
+
+	&-cover
+		position: relative
+
+		height: 650px
+
+		+backgroundSetting
+
+		&-plaecholder
+			top: 0
+			left: 0
+
+			width: 100%
+			height: 100%
+
+			position: absolute
+
+			background-color: rgba(0, 0, 0, 0.2)
+
+		&-wrapper
+			width: 95%
+			height: 100%
+
+			max-width: 1200px
+			margin: 0 auto
+
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+
+			position: relative
+			z-index: 1
+
+		&-text
+			background-color: $white
+
+			display: flex
+			justify-content: space-between
+
+			border-radius: 0 0 35px 35px
+			overflow: hidden
+
+			&-info
+				padding: 30px
+
+				&-stars
+					margin-bottom: 10px
+
+				&__title
+					font-size: 28px
+					margin-bottom: 5px
+
+			&-feedbacks
+				display: flex
+				flex-direction: column
+				align-items: center
+				justify-content: center
+
+				padding: 25px
+				background-color: $darkMainColor
+				color: $white
+
+				&__count
+					font-size: 40px
+
+				&__title
+					font-size: 15px
+
+				&__subtitle
+					font-size: 12px
+
+		&-dots
+			display: flex
+			align-items: center
+			justify-content: center
+
+			margin-bottom: 50px
+
+			&-item
+				cursor: pointer
+
+				width: 18px
+				height: 18px
+
+				background-color: rgba(255, 255, 255, 0.5)
+
+				border-radius: 50%
+
+				margin: 0 30px
+
+				&.active
+					background-color: $white
+
+	&-slider-images
+		position: relative
+		display: flex
+
+		&:hover &__btn
+			opacity: 1
+
+		&__btn
+			cursor: pointer
+
+			position: absolute
+			z-index: 2
+
+			top: 50%
+			transform: translateY(-50%)
+
+			display: flex
+			justify-content: center
+			align-items: center
+
+			width: 40px
+			height: 40px
+
+			background-color: $white
+
+			border-radius: 10px
+
+			opacity: 0
+
+			+boxShadow
+			+transition
+
+			&.next
+				right: 0
+
+			&.prev
+				left: 0
+
+			& > svg
+				stroke: $mainColor
+				+transition
+
+		&-item
+			cursor: pointer
+
+			min-width: 280px
+			height: 180px
+
+			+backgroundSetting
+			+borderRadius
+
+	&-section
+		margin-top: 50px
+
+		background-color: $white
+
+		overflow: hidden
+
+		+borderRadius
+
+		&-padding
+			padding: 50px
+
+		&__title
+			font-size: 28px
+			margin-bottom: 15px
+
+			&.marginBottom
+				margin-bottom: 50px
+
+		&__description
+			margin-bottom: 15px
+			font-size: 15px
+
+			color: $gray
+
+			&:last-child
+				margin-bottom: 0
+
+		&-text-wrapper
+			display: flex
+			flex-direction: column
+			align-items: center
+
+		&-text
+			width: 100%
+
+			position: relative
+			overflow: hidden
+
+			&-shadow
+				width: 100%
+				height: 100px
+
+				position: absolute
+
+				bottom: 0
+				left: 0
+
+				background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, $white 83.93%)
+
+				+transition
+
+				&.hidden
+					opacity: 0
+					bottom: -100px
+
+			&__btn
+				cursor: pointer
+
+				border: none
+				background-color: transparent
+
+				font-size: 18px
+
+				color: $darkMainColor
+
+				+transition
+
+				&.visible
+					margin-top: 25px
+
+					& > svg
+						transform: rotate(180deg)
+
+				& > svg
+					width: 20px
+					margin-left: 15px
+					+transition
+
+		&-about
+			&-services
+				margin-top: 50px
+
+				&-block-wrapper
+					display: flex
+					justify-content: space-between
+
+				&-block
+					width: 45%
+
+					&__title
+						font-size: 18px
+						margin-bottom: 20px
+
+					&-list
+						&__item
+							font-size: 15px
+							margin-bottom: 15px
+
+							& > svg
+								margin-right: 20px
+								width: 20px
+
+							& > span
+								color: $darkMainRed
+
+				&__link
+					cursor: pointer
+
+					color: $darkMainColor
+					font-size: 18px
+
+					margin-top: 25px
+
+					text-decoration: underline
+
+		&-room
+			&-filters
+				&-block
+					&-top
+						display: flex
+						justify-content: space-between
+						align-items: center
+
+						&-calendar
+							width: 50%
+
+						&-select
+							width: 30%
+
+						&-guest
+							width: 15%
+
+					&-bottom
+						margin-top: 30px
+
+						display: flex
+						align-items: center
+
+						&-checkbox
+							margin-right: 60px
+
+							&:last-child
+								margin-right: 0
+
+			&-block-wrapper
+				margin-top: 50px
+
+			&-block
+				display: flex
+				justify-content: space-between
+
+				&-subblock
+					&-info
+						display: flex
+
+						&-cover
+							padding: 10px 15px
+
+							display: flex
+							align-items: flex-end
+
+							width: 200px
+							min-height: 100%
+
+							+backgroundSetting
+							+borderRadius
+
+							&__count
+								cursor: pointer
+
+								user-select: none
+
+								font-size: 14px
+
+								background-color: $white
+								padding: 5px 15px
+
+								border-radius: 100px
+
+						&-text
+							margin-left: 50px
+
+							&-block
+								margin-bottom: 30px
+
+								&:last-child
+									margin-bottom: 0
+
+								&__title
+									font-size: 18px
+									color: $darkMainColor
+									margin-bottom: 10px
+
+								&__subtitle
+									font-size: 15px
+									margin-bottom: 50px
+
+								&-services
+									display: flex
+									align-items: center
+
+									&-item
+										margin-right: 25px
+
+										&:last-child
+											margin-right: 0
+
+					&-price
+						display: flex
+						flex-direction: column
+						justify-content: space-between
+
+						text-align: right
+
+						&-block
+							&__title
+								font-size: 32px
+								margin-bottom: 5px
+
+								& > span
+									color: $black
+									font-size: 16px
+
+							&__subtitle
+								font-size: 12px
+
+				&-add
+					&-btn
+						margin-top: 35px
+						padding: 20px 0
+
+						border-top: 1px solid $lightGray
+						border-bottom: 1px solid $lightGray
+
+						display: flex
+						justify-content: center
+
+						&__btn
+							cursor: pointer
+
+							border: none
+							background-color: transparent
+
+							font-size: 15px
+
+							+transition
+
+							&.visible
+								& > svg
+									transform: rotate(180deg)
+
+							& > svg
+								width: 20px
+								margin-left: 15px
+								+transition
+
+					&-block
+						display: flex
+						justify-content: space-between
+
+						margin-top: 35px
+						padding-bottom: 35px
+
+						border-bottom: 1px solid $lightGray
+
+						&-subblock
+							&-info
+								display: flex
+
+								&__description
+									width: 25%
+									font-size: 15px
+
+								&-services
+									margin-left: 50px
+
+							&-price
+								display: flex
+								flex-direction: column
+								justify-content: space-between
+
+								text-align: right
+
+								&-block
+									&__title
+										font-size: 32px
+										margin-bottom: 5px
+
+									&__subtitle
+										font-size: 15px
+
+									&__btn
+										margin-top: 25px
+
+		&-maps
+			&-text
+				&-location
+					&__title
+						color: $darkMainColor
+						margin-bottom: 10px
+
+					&__subtitle
+						font-size: 15px
+
+				&-list-wrapper
+					margin-top: 50px
+
+					display: flex
+					justify-content: space-between
+
+				&-list
+					width: 45%
+
+					&__title
+						font-size: 18px
+
+					&-item
+						margin-top: 20px
+
+						display: flex
+						justify-content: space-between
+
+						font-size: 15px
+
+				&__warning
+					margin-top: 25px
+
+					font-size: 15px
+					color: $gray
+
+			&-map
+				display: flex
+				justify-content: center
+				align-items: flex-end
+
+				padding: 25px
+
+				height: 350px
+
+				+backgroundSetting
+
+		&-feedbacks
+			&__title
+				font-size: 32px
+
+			&-count
+				display: inline-flex
+				align-items: center
+
+				padding: 15px 50px
+
+				background-color: $darkMainColor
+				color: $white
+
+				border-radius: 0px 35px 35px 0px
+
+				&__title
+					font-size: 40px
+
+				&-block
+					margin-left: 20px
+
+					&__title
+						font-size: 18px
+
+					&__subtitle
+						font-size: 15px
+
+			&-charac
+				display: flex
+				flex-wrap: wrap
+				justify-content: space-between
+
+				&-item
+					width: 30%
+					margin-bottom: 50px
+
+					&__title
+						font-size: 18px
+						margin-bottom: 20px
+
+					&-line
+						background-color: $lightGray
+
+						width: 100%
+						height: 8px
+
+						border-radius: 100px
+
+					&-line-active
+						background-color: $mainColor
+
+						height: 8px
+
+						border-radius: 100px
+
+					&__count
+						color: $gray
+						user-select: none
+
+						margin-top: 10px
+						font-size: 15px
+
+			&-block-wrapper
+				width: 100%
+
+			&-block
+				width: 100%
+
+				display: flex
+				justify-content: space-between
+
+				padding-bottom: 15px
+				margin-bottom: 50px
+
+				border-bottom: 1px solid $lightGray
+
+				&:last-child
+					margin-bottom: 0
+					padding-bottom: 0
+					border: none
+
+				&-info
+					width: 30%
+
+					&__name
+						font-size: 18px
+						margin-bottom: 10px
+
+					&__type
+						font-size: 15px
+
+					&__date
+						margin-top: 50px
+
+						font-size: 15px
+						color: $gray
+
+				&-text
+					width: 65%
+
+					&-block
+						margin-bottom: 25px
+
+						&__title
+							font-size: 18px
+							margin-bottom: 10px
+
+							&.green
+								color: $darkMainGreen
+
+							&.red
+								color: $darkMainRed
+
+						&__description
+							font-size: 15px
+
+		&-services
+			&-block-wrapper
+				display: flex
+				flex-wrap: wrap
+
+			&-list
+				margin-top: 50px
+
+				width: 33%
+				padding-right: 50px
+
+				&:nth-child(3n+3)
+					padding-right: 0
+
+				&__title
+					font-size: 18px
+					margin-bottom: 20px
+
+				&-ul
+					margin-left: 25px
+
+					&__li
+						position: relative
+
+						display: flex
+						align-items: center
+
+						margin-bottom: 20px
+
+						font-size: 15px
+
+						&::before
+							content: ""
+							position: absolute
+
+							width: 4px
+							height: 4px
+
+							background-color: $black
+
+							border-radius: 50%
+
+							left: -16px
+							top: 50%
+
+							transform: translateY(-50%)
+
+						& > svg
+							cursor: pointer
+							margin-left: 10px
+							width: 20px
+
+						& > span
+							color: $darkMainRed
+
+						& > span.gray
+							color: $gray
+
+						&:last-child
+							margin-bottom: 0
+
+				&-tab
+					margin-top: 30px
+
+					&-top
+						display: flex
+						align-items: center
+						justify-content: space-between
+
+						margin-bottom: 25px
+
+						&-icon
+							+transition
+
+							&.rotate
+								transform: rotate(180deg)
+
+					&-list
+						&-ul
+							margin-left: 25px
+
+							&__li
+								position: relative
+
+								display: flex
+								align-items: center
+
+								margin-bottom: 20px
+
+								font-size: 15px
+
+								&::before
+									content: ""
+									position: absolute
+
+									width: 4px
+									height: 4px
+
+									background-color: $black
+
+									border-radius: 50%
+
+									left: -16px
+									top: 50%
+
+									transform: translateY(-50%)
+
+								& > svg
+									cursor: pointer
+									margin-left: 10px
+									width: 20px
+
+								& > span
+									color: $darkMainRed
+
+								& > span.gray
+									color: $gray
+
+								&:last-child
+									margin-bottom: 0
+
+		&-terms
+			&-from-to
+				display: flex
+				justify-content: space-between
+
+				&-block-wrapper
+					width: 45%
+
+				&-block
+					margin-top: 20px
+					margin-left: 35px
+
+					display: flex
+					justify-content: space-between
+
+					&__subtitle
+						font-size: 15px
+
+					&-line-wrapper
+						margin-top: 7px
+						width: 70%
+
+					&-line
+						background-color: $lightGray
+
+						width: 100%
+						height: 8px
+
+						border-radius: 100px
+
+						&-active
+							background-color: $mainColor
+
+							height: 8px
+
+							border-radius: 100px
+
+						&__count
+							color: $gray
+							user-select: none
+
+							margin-top: 10px
+							font-size: 15px
+
+				&-change-time
+					margin-top: 30px
+
+					&-block
+						margin-left: 35px
+						margin-top: 25px
+
+						display: flex
+
+						&__description
+							font-size: 15px
+							margin-right: 50px
+
+							& > span
+								color: $gray
+								margin-right: 40px
+
+			&-text
+				margin-top: 65px
+
+				&__title
+					font-size: 18px
+					margin-bottom: 25px
+
+			&-payment
+				margin-top: 50px
+
+				&-block
+					width: 45%
+
+					&__description
+						margin-top: 20px
+						margin-left: 35px
+
+						font-size: 15px

@@ -1,8 +1,17 @@
 import React from "react";
+import {useDispatch} from "react-redux";
 
 import {TitleIcon, Select} from "../../../";
 
+import {setCabinetObjectsFiltersStatus} from "../../../../redux/actions/cabinet/cabinetObjects";
+
 const CabinetObjectsFiltersStatus: React.FC = () => {
+    const dispatch = useDispatch();
+
+    const onChange = (status: string) => {
+        dispatch(setCabinetObjectsFiltersStatus(status));
+    };
+
     return (
         <div className="cabinet-block-objects-filters-block">
             <TitleIcon title="Статус объекта" marginBottom>
@@ -24,14 +33,15 @@ const CabinetObjectsFiltersStatus: React.FC = () => {
 
             <Select
                 choices={[
-                    {title: "Все статусы", key: "all"},
-                    {title: "Проверка", key: "checked"},
-                    {title: "Опубликовано", key: "published"},
+                    {title: "Все статусы", key: ""},
+                    {title: "Проверка", key: "created"},
+                    {title: "Опубликовано", key: "verified"},
                     {title: "В архиве", key: "archived"},
                     {title: "Нужна верификация", key: "verification"},
                 ]}
                 border
                 small
+                onChange={onChange}
             />
         </div>
     );

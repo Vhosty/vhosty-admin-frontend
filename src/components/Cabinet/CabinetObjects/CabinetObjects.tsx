@@ -21,13 +21,16 @@ import {
 const CabinetObjects: React.FC = () => {
     const dispatch = useDispatch();
 
-    const {objects, isLoadedObjects, deleteIds} = useTypedSelector(
-        ({cabinetObjects}) => cabinetObjects
-    );
+    const {
+        objects,
+        isLoadedObjects,
+        deleteIds,
+        filters: {status},
+    } = useTypedSelector(({cabinetObjects}) => cabinetObjects);
 
     React.useEffect(() => {
-        dispatch(fetchCabinetObjects() as any);
-    }, []);
+        dispatch(fetchCabinetObjects(status) as any);
+    }, [status]);
 
     const setObjectsDeleteIdsOnClick = (id: {
         hotel_id: number;
@@ -69,7 +72,7 @@ const CabinetObjects: React.FC = () => {
                     </h2>
 
                     <p className="cabinet-block-text__subtitle">
-                        База зарегистрированных пользователей bookover.ru
+                        База объявлений bookover.ru
                     </p>
                 </div>
 

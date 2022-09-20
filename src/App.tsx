@@ -5,12 +5,14 @@ import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 import "moment/locale/ru";
 
 import {
+    Header,
     Footer,
-	CabinetMain,
-	CabinetObjects
+    CabinetMain,
+    CabinetObjects,
+    CabinetUsers,
 } from "./components/";
 
-import {Reglog, Login, Cabinet} from "./pages";
+import {Reglog, Login, Cabinet, ObjectPage} from "./pages";
 
 const App = () => {
     const dispatch = useDispatch();
@@ -41,10 +43,24 @@ const App = () => {
     return (
         <>
             <React.Suspense fallback={<></>}>
+                {pathname === "/" ||
+                pathname.indexOf("/cabinet") !== -1 ? null : (
+                    <Header />
+                )}
+
                 <Reglog />
 
                 <Routes>
-                    <Route path="/" element={<Login />} />
+                    <Route
+                        path="/"
+                        element={
+                            isRedirectUser ? (
+                                <Navigate to="/cabinet/main" />
+                            ) : (
+                                <Login />
+                            )
+                        }
+                    />
 
                     <Route
                         path="/cabinet/main"
@@ -62,6 +78,28 @@ const App = () => {
                         element={
                             isRedirectUser ? (
                                 <Cabinet block={<CabinetObjects />} />
+                            ) : (
+                                <Navigate to="/" />
+                            )
+                        }
+                    />
+
+                    <Route
+                        path="/cabinet/users"
+                        element={
+                            isRedirectUser ? (
+                                <Cabinet block={<CabinetUsers />} />
+                            ) : (
+                                <Navigate to="/" />
+                            )
+                        }
+                    />
+
+                    <Route
+                        path="/object/:id"
+                        element={
+                            isRedirectUser ? (
+                                <ObjectPage />
                             ) : (
                                 <Navigate to="/" />
                             )

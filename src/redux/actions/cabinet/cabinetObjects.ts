@@ -7,14 +7,21 @@ import {
 
 import $api from '../../../http';
 
-export const fetchCabinetObjects = () => {
+export const fetchCabinetObjects = (status?: string) => {
 	return async (dispatch: Dispatch<CabinetObjectsActions>) => {
 		dispatch({
 			type: CabinetObjectsActionTypes.SET_CABINET_OBJECTS_IS_LOADED_OBJECTS,
 			payload: false
 		})
 
-		$api.get("/hotels/admin/catalog", { params: { limit: 100 } }).then(({ data }) => {
+		const query: any = { limit: 100 }
+
+		if (status && status !== "") {
+			query.status = status
+		}
+
+
+		$api.get("/hotels/admin/catalog", { params: query }).then(({ data }) => {
 			dispatch({
 				type: CabinetObjectsActionTypes.SET_CABINET_OBJECTS_IS_LOADED_OBJECTS,
 				payload: true
@@ -53,30 +60,32 @@ export const sendDeleteObjects = (ids: {
 	}
 }) => {
 	return async (dispatch: Dispatch<CabinetObjectsActions>) => {
-		// dispatch({
-		// 	type: CabinetObjectsActionTypes.SET_OBJECTS_IS_SEND_DELETE,
-		// 	payload: true
-		// })
+		dispatch({
+			type: CabinetObjectsActionTypes.SET_OBJECTS_IS_SEND_DELETE,
+			payload: true
+		})
 
-		// const to_delete: {
-		// 	hotel_id: number,
-		// 	room_category_id: string
-		// }[] = []
+		const to_delete: number[] = []
 
-		// Object.keys(ids).map((key) => {
-		// 	to_delete.push(ids[key])
-		// })
+		Object.keys(ids).map((key) => {
+			to_delete.push(ids[key].hotel_id)
+		})
 
+		$api.post("/hotels/admin/catalog/block", {
+			hotels: to_delete,
+			is_blocked: true
+		}).then(() => {
+			dispatch({
+				type: CabinetObjectsActionTypes.SET_FILL_OBJECTS_DELETE_IDS,
+				payload: {}
+			})
 
-		// $api.delete("/hotels/employee/catalog", {
-		// 	data: { to_delete }
-		// }).then(({ data }) => {
-		// 	dispatch({
-		// 		type: CabinetObjectsActionTypes.SET_FILL_OBJECTS_DELETE_IDS,
-		// 		payload: {}
-		// 	})
-
-		// 	dispatch(fetchCabinetObjects() as any)
-		// })
+			dispatch(fetchCabinetObjects() as any)
+		})
 	}
 }
+
+export const setCabinetObjectsFiltersStatus = (status: string) => ({
+	type: CabinetObjectsActionTypes.SET_CABINET_OBJECTS_FILTERS_STATUS,
+	payload: status
+})

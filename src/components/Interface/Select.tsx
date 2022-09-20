@@ -11,6 +11,8 @@ interface SelectProps {
     small?: boolean;
 
     disabled?: boolean;
+
+    onChange?: (value: string) => void;
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -19,6 +21,7 @@ const Select: React.FC<SelectProps> = ({
     small,
     title,
     disabled,
+    onChange,
 }) => {
     const id = v4();
 
@@ -94,7 +97,11 @@ const Select: React.FC<SelectProps> = ({
                                         currentIndex === index ? "active" : ""
                                     }`}
                                     key={`${id}-select-list__item-${index}`}
-                                    onClick={() => setCurrentIndex(index)}
+                                    onClick={() => {
+                                        setCurrentIndex(index);
+
+                                        if (onChange) onChange(item.key);
+                                    }}
                                 >
                                     {item.title}
                                 </p>
