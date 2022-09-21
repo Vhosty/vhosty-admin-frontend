@@ -129,8 +129,6 @@ export const sendObjectPageBlocked = (id: string | null) => {
 
 
 export const sendObjectPageStatus = (id: string | null, status: string, comment: string) => {
-	console.log(comment)
-
 	return async (dispatch: Dispatch<ObjectPageActions>) => {
 		$api.post(`/hotels/admin/approve-hotels/${id}`, {
 			status,

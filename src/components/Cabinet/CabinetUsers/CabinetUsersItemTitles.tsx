@@ -2,13 +2,21 @@ import React from "react";
 
 import {Checkbox} from "../../";
 
-const CabinetUsersItemTitles: React.FC = () => {
+interface CabinetUsersItemTitlesProps {
+    isAll: boolean;
+    setFillUsersDeleteIdsOnClick: () => void;
+}
+
+const CabinetUsersItemTitles: React.FC<CabinetUsersItemTitlesProps> = ({
+    isAll,
+    setFillUsersDeleteIdsOnClick,
+}) => {
     return (
         <div className="cabinet-block-users-titles">
             <div className="cabinet-block-users-titles-checkbox">
                 <Checkbox
-                // onClick={setFillObjectsDeleteIdsOnClick}
-                // checked={isAll}
+                    checked={isAll}
+                    onClick={setFillUsersDeleteIdsOnClick}
                 >
                     <></>
                 </Checkbox>

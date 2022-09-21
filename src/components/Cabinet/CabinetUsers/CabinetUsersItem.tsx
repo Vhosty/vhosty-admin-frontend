@@ -7,6 +7,8 @@ import moment from "moment";
 
 interface CabinetUsersItemProps extends CabinetUser {
     isSelected: boolean;
+
+    setUsersDeleteIdsOnClick: (id: number) => void;
 }
 
 const CabinetUsersItem: React.FC<CabinetUsersItemProps> = ({
@@ -16,6 +18,7 @@ const CabinetUsersItem: React.FC<CabinetUsersItemProps> = ({
     full_name,
     email,
     phone,
+    setUsersDeleteIdsOnClick,
 }) => {
     return (
         <div
@@ -25,22 +28,15 @@ const CabinetUsersItem: React.FC<CabinetUsersItemProps> = ({
         >
             <div className="cabinet-block-users-item-block-checkbox">
                 <Checkbox
-                // checked={isSelected}
-                // onClick={() =>
-                //     setObjectsDeleteIdsOnClick({
-                //         hotel_id: id,
-                //         room_category_id: room_categories.id,
-                //     })
-                // }
+                    checked={isSelected}
+                    onClick={() => setUsersDeleteIdsOnClick(id)}
                 >
                     <></>
                 </Checkbox>
             </div>
 
             <div className="cabinet-block-users-item-block-id">
-                <p className="cabinet-block-users-item-block-id__title">
-                    {id}
-                </p>
+                <p className="cabinet-block-users-item-block-id__title">{id}</p>
             </div>
 
             <div className="cabinet-block-users-item-block-date">

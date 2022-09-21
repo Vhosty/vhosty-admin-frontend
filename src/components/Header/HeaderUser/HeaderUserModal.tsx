@@ -35,11 +35,11 @@ const HeaderUserModal: React.FC = () => {
                 </p>
             </NavLink>
 
-            {/* <Link to="#logout" className="header-block-user-modal-item">
+            <Link to="#logout" className="header-block-user-modal-item">
                 <p className="header-block-user-modal-item__title">
                     Выйти из аккаунта
                 </p>
-            </Link> */}
+            </Link>
         </div>
     );
 };

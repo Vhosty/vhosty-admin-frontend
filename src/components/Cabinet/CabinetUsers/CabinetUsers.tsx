@@ -3,7 +3,11 @@ import {useDispatch} from "react-redux";
 
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
-import { fetchCabinetUsers } from "../../../redux/actions/cabinet/cabinetUsers";
+import {
+    fetchCabinetUsers,
+    setUsersDeleteIds,
+    setFillUsersDeleteIds,
+} from "../../../redux/actions/cabinet/cabinetUsers";
 
 import {CabinetUser} from "../../../models/ICabinetUsers";
 
@@ -20,13 +24,35 @@ import {
 const CabinetUsers: React.FC = () => {
     const dispatch = useDispatch();
 
-    const {type, isLoaded, users} = useTypedSelector(
+    const {type, isLoaded, users, deleteIds} = useTypedSelector(
         ({cabinetUsers}) => cabinetUsers
     );
 
     React.useEffect(() => {
         dispatch(fetchCabinetUsers(type) as any);
     }, [type]);
+
+    const setUsersDeleteIdsOnClick = (id: number) => {
+        dispatch(setUsersDeleteIds(id));
+    };
+
+    const setFillUsersDeleteIdsOnClick = () => {
+        if (checkIsAll()) {
+            dispatch(setFillUsersDeleteIds({}));
+        } else {
+            const newUsers: {
+                [key: string]: number;
+            } = {};
+            users.map((user: CabinetUser) => {
+                newUsers[user.id] = user.id;
+            });
+            dispatch(setFillUsersDeleteIds(newUsers));
+        }
+    };
+
+    const checkIsAll = () => {
+        return users.length === Object.keys(deleteIds).length;
+    };
 
     return (
         <div className="cabinet-block cabinet-block-users">
@@ -53,24 +79,21 @@ const CabinetUsers: React.FC = () => {
                             <CabinetUsersDeleteBtn />
 
                             <CabinetUsersItemTitles
-                            // isAll={checkIsAll()}
-                            // setFillObjectsDeleteIdsOnClick={
-                            // setFillObjectsDeleteIdsOnClick
-                            // }
+                                isAll={checkIsAll()}
+                                setFillUsersDeleteIdsOnClick={
+                                    setFillUsersDeleteIdsOnClick
+                                }
                             />
 
                             {users.map((user: CabinetUser, index: any) => (
                                 <CabinetUsersItem
                                     {...user}
-                                    isSelected={false}
-                                    // isSelected={
-                                    //     deleteIds[object.hotel.id]
-                                    //         ? true
-                                    //         : false
-                                    // }
-                                    // setObjectsDeleteIdsOnClick={
-                                    //     setObjectsDeleteIdsOnClick
-                                    // }
+                                    isSelected={
+                                        deleteIds[user.id] ? true : false
+                                    }
+                                    setUsersDeleteIdsOnClick={
+                                        setUsersDeleteIdsOnClick
+                                    }
                                     key={`"cabinet-block-users-item-${index}`}
                                 />
                             ))}

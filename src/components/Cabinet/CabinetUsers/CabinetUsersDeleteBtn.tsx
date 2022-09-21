@@ -3,15 +3,17 @@ import {useDispatch} from "react-redux";
 
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
-import {sendDeleteObjects} from "../../../redux/actions/cabinet/cabinetObjects";
+import {sendDeleteUsers} from "../../../redux/actions/cabinet/cabinetUsers";
 
 const CabinetUsersDeleteBtn: React.FC = () => {
     const dispatch = useDispatch();
 
-    const {deleteIds} = useTypedSelector(({cabinetObjects}) => cabinetObjects);
+    const {deleteIds, type} = useTypedSelector(
+        ({cabinetUsers}) => cabinetUsers
+    );
 
     const sendDeleteOnClick = () => {
-        dispatch(sendDeleteObjects(deleteIds) as any);
+        dispatch(sendDeleteUsers(deleteIds, type) as any);
     };
 
     return (

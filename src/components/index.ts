@@ -41,6 +41,9 @@ export { default as ReglogSuccess } from "./Reglog/ReglogSuccess";
 // Login
 export { default as LoginForm } from "./Login/LoginForm";
 
+// Logout
+export { default as Logout } from "./Logout/Logout";
+
 // Cabinet
 export { default as CabinetMenu } from "./Cabinet/CabinetMenu";
 export { default as CabinetNull } from "./Cabinet/CabinetNull";

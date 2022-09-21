@@ -7,6 +7,7 @@ import {useTypedSelector} from "../hooks/useTypedSelector";
 import {
     ObjectPageModalsConfirmedBlocked,
     ObjectPageModalsConfirmedStatus,
+    Logout,
 } from "../components/";
 
 import {
@@ -115,6 +116,10 @@ const Reglog: React.FC = () => {
                     <ObjectPageModalsConfirmedStatus
                         onSubmit={onChangeObjectPageModalsConfirmedStatus}
                     />
+                ) : null}
+
+                {type === ReglogStateTypesLogin.LOGOUT ? (
+                    <Logout />
                 ) : null}
             </div>
         </section>
