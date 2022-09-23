@@ -8,10 +8,13 @@ import {sendDeleteObjects} from "../../../redux/actions/cabinet/cabinetObjects";
 const CabinetObjectsDeleteBtn: React.FC = () => {
     const dispatch = useDispatch();
 
-    const {deleteIds} = useTypedSelector(({cabinetObjects}) => cabinetObjects);
+    const {
+        deleteIds,
+        filters: {status, search},
+    } = useTypedSelector(({cabinetObjects}) => cabinetObjects);
 
     const sendDeleteOnClick = () => {
-        dispatch(sendDeleteObjects(deleteIds) as any);
+        dispatch(sendDeleteObjects(deleteIds, status, search) as any);
     };
 
     return (

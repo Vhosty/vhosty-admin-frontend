@@ -5,7 +5,8 @@ const initialState: CabinetObjectsState = {
 	objects: [],
 
 	filters: {
-		status: ""
+		status: "",
+		search: ""
 	},
 
 	isSendDelete: false,
@@ -33,6 +34,16 @@ const cabinetObjects = (state = initialState, action: CabinetObjectsActions) => 
 			filters: {
 				...state.filters,
 				status: action.payload
+			}
+		}
+	}
+
+	if (action.type === CabinetObjectsActionTypes.SET_CABINET_OBJECTS_FILTERS_SEARCH) {
+		return {
+			...state,
+			filters: {
+				...state.filters,
+				search: action.payload
 			}
 		}
 	}

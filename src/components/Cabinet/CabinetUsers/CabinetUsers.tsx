@@ -24,13 +24,13 @@ import {
 const CabinetUsers: React.FC = () => {
     const dispatch = useDispatch();
 
-    const {type, isLoaded, users, deleteIds} = useTypedSelector(
+    const {type, isLoaded, users, deleteIds, filters} = useTypedSelector(
         ({cabinetUsers}) => cabinetUsers
     );
 
     React.useEffect(() => {
-        dispatch(fetchCabinetUsers(type) as any);
-    }, [type]);
+        dispatch(fetchCabinetUsers(type, filters.date, filters.search) as any);
+    }, [type, filters.date, filters.search]);
 
     const setUsersDeleteIdsOnClick = (id: number) => {
         dispatch(setUsersDeleteIds(id));

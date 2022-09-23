@@ -7,14 +7,14 @@ import {
 
 import $api from '../../../http';
 
-export const fetchCabinetObjects = (status?: string) => {
+export const fetchCabinetObjects = (status: string, search: string) => {
 	return async (dispatch: Dispatch<CabinetObjectsActions>) => {
 		dispatch({
 			type: CabinetObjectsActionTypes.SET_CABINET_OBJECTS_IS_LOADED_OBJECTS,
 			payload: false
 		})
 
-		const query: any = { limit: 100 }
+		const query: any = { limit: 100, search }
 
 		if (status && status !== "") {
 			query.status = status
@@ -58,7 +58,7 @@ export const sendDeleteObjects = (ids: {
 		hotel_id: number,
 		room_category_id: string
 	}
-}) => {
+}, status: string, search: string) => {
 	return async (dispatch: Dispatch<CabinetObjectsActions>) => {
 		dispatch({
 			type: CabinetObjectsActionTypes.SET_OBJECTS_IS_SEND_DELETE,
@@ -80,12 +80,17 @@ export const sendDeleteObjects = (ids: {
 				payload: {}
 			})
 
-			dispatch(fetchCabinetObjects() as any)
+			dispatch(fetchCabinetObjects(status, search) as any)
 		})
 	}
 }
 
 export const setCabinetObjectsFiltersStatus = (status: string) => ({
 	type: CabinetObjectsActionTypes.SET_CABINET_OBJECTS_FILTERS_STATUS,
+	payload: status
+})
+
+export const setCabinetObjectsFiltersSearch = (status: string) => ({
+	type: CabinetObjectsActionTypes.SET_CABINET_OBJECTS_FILTERS_SEARCH,
 	payload: status
 })

@@ -3,7 +3,8 @@ export interface CabinetObjectsState {
 	objects: [],
 
 	filters: {
-		status: string
+		status: string,
+		search: string
 	},
 
 	isSendDelete: boolean,
@@ -20,6 +21,7 @@ export enum CabinetObjectsActionTypes {
 	SET_CABINET_OBJECTS = "SET_CABINET_OBJECTS",
 
 	SET_CABINET_OBJECTS_FILTERS_STATUS = "SET_CABINET_OBJECTS_FILTERS_STATUS",
+	SET_CABINET_OBJECTS_FILTERS_SEARCH = "SET_CABINET_OBJECTS_FILTERS_SEARCH",
 
 	SET_OBJECTS_DELETE_IDS = "SET_OBJECTS_DELETE_IDS",
 	SET_FILL_OBJECTS_DELETE_IDS = "SET_FILL_OBJECTS_DELETE_IDS",
@@ -38,6 +40,11 @@ interface setCabinetObjects {
 
 interface setCabinetObjectsFiltersStatus {
 	type: CabinetObjectsActionTypes.SET_CABINET_OBJECTS_FILTERS_STATUS
+	payload: string
+}
+
+interface setCabinetObjectsFiltersSearch {
+	type: CabinetObjectsActionTypes.SET_CABINET_OBJECTS_FILTERS_SEARCH
 	payload: string
 }
 
@@ -64,4 +71,4 @@ interface setObjectsIsSendDelete {
 	payload: boolean
 }
 
-export type CabinetObjectsActions = setCabinetObjectsIsLoadedObjects | setCabinetObjects | setCabinetObjectsFiltersStatus | setObjectsDeleteIds | setFillObjectsDeleteIds | setObjectsIsSendDelete
+export type CabinetObjectsActions = setCabinetObjectsIsLoadedObjects | setCabinetObjects | setCabinetObjectsFiltersStatus | setCabinetObjectsFiltersSearch | setObjectsDeleteIds | setFillObjectsDeleteIds | setObjectsIsSendDelete

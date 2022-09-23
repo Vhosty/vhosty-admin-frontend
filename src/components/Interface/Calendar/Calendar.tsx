@@ -16,13 +16,22 @@ export interface CalendarTo {
 }
 
 interface CalendarProps {
-	title1: string,
-	title2: string,
-	
-	isCheckedBefore?: boolean;
+    title1: string;
+    title2: string;
+
+    onChange?: (from: Moment, to: Moment) => void;
+
+    isCheckedBefore?: boolean;
+    isHiddenCount?: boolean;
 }
 
-const Calendar: React.FC<CalendarProps> = ({title1, title2, isCheckedBefore}) => {
+const Calendar: React.FC<CalendarProps> = ({
+    title1,
+    title2,
+    onChange,
+    isCheckedBefore,
+    isHiddenCount,
+}) => {
     const [activeCalendar, setActiveCalendar] = React.useState<boolean>(false);
 
     const [date, setDate] = React.useState<Moment>(moment());
@@ -39,6 +48,10 @@ const Calendar: React.FC<CalendarProps> = ({title1, title2, isCheckedBefore}) =>
     const openCalendar = () => {
         setActiveCalendar(true);
     };
+
+    React.useEffect(() => {
+        if (onChange) onChange(from.date, to.date);
+    }, [from, to]);
 
     return (
         <div className="calendar-wrapper">
@@ -57,15 +70,17 @@ const Calendar: React.FC<CalendarProps> = ({title1, title2, isCheckedBefore}) =>
                     </span>
                 </div>
 
-                <span className="calendar__count">
-                    {to.date.diff(from.date, "days") == 0
-                        ? ""
-                        : checkDeclension(to.date.diff(from.date, "days"), [
-                              "сутки",
-                              "суток",
-                              "суток",
-                          ]).title}
-                </span>
+                {isHiddenCount ? null : (
+                    <span className="calendar__count">
+                        {to.date.diff(from.date, "days") == 0
+                            ? ""
+                            : checkDeclension(to.date.diff(from.date, "days"), [
+                                  "сутки",
+                                  "суток",
+                                  "суток",
+                              ]).title}
+                    </span>
+                )}
 
                 <div
                     className={`calendar-icon ${

@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 import { CabinetUsersState, CabinetUsersTypeUser, CabinetUsersActions, CabinetUsersActionTypes } from '../../types/ICabinetUsers'
 
 const initialState: CabinetUsersState = {
@@ -5,6 +7,15 @@ const initialState: CabinetUsersState = {
 	isLoaded: false,
 
 	type: CabinetUsersTypeUser.USERS,
+
+	filters: {
+		date: {
+			from: moment(),
+			to: moment()
+		},
+
+		search: ""
+	},
 
 	isSendDelete: false,
 	deleteIds: {},
@@ -30,6 +41,26 @@ const cabinetUsers = (state = initialState, action: CabinetUsersActions) => {
 			...state,
 			type: action.payload,
 			deleteIds: {},
+		}
+	}
+
+	if (action.type === CabinetUsersActionTypes.SET_CABINET_USERS_FILTERS_DATE) {
+		return {
+			...state,
+			filters: {
+				...state.filters,
+				date: action.payload
+			}
+		}
+	}
+
+	if (action.type === CabinetUsersActionTypes.SET_CABINET_USERS_FILTERS_SEARCH) {
+		return {
+			...state,
+			filters: {
+				...state.filters,
+				search: action.payload
+			}
 		}
 	}
 

@@ -25,12 +25,12 @@ const CabinetObjects: React.FC = () => {
         objects,
         isLoadedObjects,
         deleteIds,
-        filters: {status},
+        filters: {status, search},
     } = useTypedSelector(({cabinetObjects}) => cabinetObjects);
 
     React.useEffect(() => {
-        dispatch(fetchCabinetObjects(status) as any);
-    }, [status]);
+        dispatch(fetchCabinetObjects(status, search) as any);
+    }, [status, search]);
 
     const setObjectsDeleteIdsOnClick = (id: {
         hotel_id: number;

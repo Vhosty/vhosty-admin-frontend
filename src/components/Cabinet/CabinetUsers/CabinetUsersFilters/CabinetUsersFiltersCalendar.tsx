@@ -1,8 +1,25 @@
 import React from "react";
+import {Moment} from "moment";
+import {useDispatch} from "react-redux";
 
 import {TitleIcon, Calendar} from "../../../";
 
+import {setCabinetUsersFiltersDate} from "../../../../redux/actions/cabinet/cabinetUsers";
+
 const CabinetUsersFiltersCalendar: React.FC = () => {
+    const dispatch = useDispatch();
+
+    const onChangeCalendar = (from: Moment, to: Moment) => {
+        if (to.isAfter(from)) {
+            dispatch(
+                setCabinetUsersFiltersDate({
+                    from,
+                    to,
+                })
+            );
+        }
+    };
+
     return (
         <div className="cabinet-block-users-filters-block">
             <TitleIcon title="Дата" marginBottom>
@@ -18,7 +35,13 @@ const CabinetUsersFiltersCalendar: React.FC = () => {
                 </svg>
             </TitleIcon>
 
-            <Calendar title1="С" title2="По" isCheckedBefore />
+            <Calendar
+                title1="С"
+                title2="По"
+                onChange={onChangeCalendar}
+                isCheckedBefore
+                isHiddenCount
+            />
         </div>
     );
 };
